@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="unlock" content="text/html; charset=UTF-8" />
+<script src="js/prefixfree.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<style>
+#container { 
+    background-color:rgb(255, 255, 255); 
+    width:960px;
+    height: 1000px; 
+    margin:0 auto; 
+    padding:10px; 
+    /* border: 1px solid black; */
+}
+#content { 
+    background: url('images/iphone 11.png') no-repeat;
+    padding: 10px;
+    width: 56%;
+    height: 88%;
+    position: relative;
+    left: 192px;
+    top: 46px;
+    /* border: 1px solid black; */
+}
+#startclockT {
+    color: white;
+    left: 185px;
+    top: 100px;
+    position: absolute;
+    /* font-family: 'Noto Sans HK', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+}
+#startclockY {
+    color: white;
+    left: 190px;
+    top: 228px;
+    position: absolute;
+    /* font-family: 'Noto Sans HK', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+#footer { 
+    /* border: 1px solid black; */
+    width: 300px;
+    height: 100px;
+    position: relative;
+    left: 333px;
+    top: -110px;
+}
+li{
+    list-style: none;
+}
+a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.692);
+}
+a:hover{
+    color: black;
+}
+a:active{
+    color: white;
+}
+
+</style>
+<title>lock</title>
+</head>
+
+	<body>
+		<section id="container">
+            <section id="content">
+                <div id="startclockT"></div>
+                <div id="startclockY"></div>
+            </section>
+			<footer id="footer">
+                <li><a href="01_mainMenu.html" >> tap to unlock</a></li>
+            </footer>
+        </section>
+        
+        <script>
+
+            function startClockT(){
+                clockT();
+                setInterval(clockT, 1000);
+            }
+            function startClockY(){
+                clockY();
+                setInterval(clockY, 1000);
+            }
+            
+            function clockY(){
+            let now = new Date();
+            let mm = now.getMonth();
+            let dd = now.getDate();
+            let day = now.getDay();
+
+            let month = ['January', 'February','March',
+                        'April','May','June',
+                        'July','August','September',
+                        'October','November','December'];
+            let week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            let s1 = week[day] +", "+ month[mm] + " " + dd ;
+
+            startclockY.innerHTML = "<h1>"+s1+"</h1>";
+        }
+            function clockT(){
+            let now = new Date();
+            let hh = now.getHours();
+            let mi = get2digit(now.getMinutes());
+
+            let s2 = hh + ":" + mi;
+
+            startclockT.innerHTML = "<h1>"+s2+"</h2>";
+        }
+
+        function get2digit(num){
+            if(num<10)
+                return "0"+num;
+            else
+                return num;
+        }
+
+        startClockT();
+        startClockY();
+        </script>
+	</body>
+</html>
