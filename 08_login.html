@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <style>
+    * {
+        font-family: 'Noto Sans KR', sans-serif;
+        margin: 3px;
+    }
+
+    #btn{
+        width: 60px;
+        float: right;
+        position: relative;
+        bottom: 20px;
+    }
+
+    #userId, #password{
+        float: right;
+        width: 150px;
+    }
+
+    label{
+        display: inline-block;
+    }
+
+    </style>
+
+    <form action="" onsubmit="return getMemberBook();">
+        <fieldset style="width: 300px;">
+            <legend>LOGIN</legend>
+            <div>
+                <label for="userId">ID</label>
+                <input type="text" name="userId" id="userId" required>
+            </div>
+            <div>
+                <label for="password">PASSWORD</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <br><br>
+            <input type="submit" value="Check" id="btn">
+        </fieldset>
+    </form>
+
+    <script>
+
+        function myPopup(){
+            childWindow = window.open("07_UserInfo.html", "myPopup2", "width=900, height=500, top=300, left=200")
+        }
+
+        $(function(){
+            $("#btn").click(function(){
+                getMemberBook();
+            });
+        });
+
+        function getMemberBook(){
+            let memberBook = JSON.parse(localStorage.getItem("memberBook"));
+            
+            //id 검사
+            let userIdVal = userId.value.trim();
+
+            var userArr = [];
+            $(memberBook).each(function(i, entry){
+                entryid = entry.userId;
+                entrypwd = entry.password;
+                userArr.push({id: entryid, pwd: entrypwd});
+            });
+
+            var cnt = 0;
+            for(let i=0; i<userArr.length; i++){
+                if(userArr[i]['id'] == userIdVal){
+                    var index = i;
+                    cnt ++;
+                }
+            }
+            if(cnt == 0){
+                alert("존재하지 않는 아이디 입니다.");
+                userId.focus();
+                return false;
+            }
+            
+            //pw 검사
+            let PwdVal = password.value.trim();
+            // console.log(userArr[index]['pwd']);
+
+            if(PwdVal != userArr[index]['pwd']){
+                alert("비밀번호를 확인하세요.");
+                userId.focus();
+                return false;
+            }
+
+                myPopup();
+                alert("로그인 성공");
+    };
+
+    </script>
+</body>
+</html>

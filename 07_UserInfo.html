@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserInfo</title>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+    <table id="tbl-memberBook"></table>
+
+    <style>
+    * {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+        table,th,td{
+            margin-top: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+
+    <script>
+        function getMemberBook(){
+        let header = "<tr>" 
+                    + "<th>이름</th><th>아이디</th><th>비밀번호</th><th>이메일</th>" 
+                    + "<th>생년월일</th><th>성별</th><th>연락처</th><th>직업</th>" 
+                    + "<th>가입일</th>" 
+                    + "</tr>";
+        $("#tbl-memberBook").html(header);
+
+        let memberBook = JSON.parse(localStorage.getItem("memberBook"));
+
+        $(memberBook).each(function(i, entry){
+            let d = new Date(entry.date);
+            let html = "<tr>" 
+                    + "<td>" + entry.userName + "</td>"
+                    + "<td>" + entry.userId + "</td>"
+                    + "<td>" + entry.password + "</td>"
+                    + "<td>" + entry.email + "</td>"
+                    + "<td>" + entry.birth + "</td>"
+                    + "<td>" + entry.gender + "</td>"
+                    + "<td>" + entry.phone + "</td>"
+                    + "<td>" + entry.job + "</td>"
+                    + "<td>" + (Number(d.getMonth())+1) + '/' + d.getDate() + ' ' + d.getHours() + " : " + d.getMinutes() + "</td>"
+                    + "</tr>";
+            $("#tbl-memberBook").append(html);
+        });
+    };
+
+    getMemberBook();
+
+    </script>
+</body>
+</html>

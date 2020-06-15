@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="mainMenu" content="text/html; charset=UTF-8" />
+<script src="js/prefixfree.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<style>
+#container { 
+    background-color:rgb(255, 255, 255); 
+    width:960px;
+    height: 1000px; 
+    margin:0 auto; 
+    padding:10px; 
+    /* border: 1px solid black; */
+}
+#content { 
+    background: url('images/iphone.png') no-repeat;
+    padding: 10px;
+    width: 56%;
+    height: 88%;
+    position: relative;
+    left: 192px;
+    top: 46px;
+    /* border: 1px solid black; */
+}
+
+#startclockT {
+    color: rgb(255, 255, 255);
+    left: 110px;
+    top: 35px;
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+#footer { 
+    /* border: 1px solid black; */
+    border-radius:38px;
+    background-color: rgba(245, 245, 220, 0.411);
+    width: 370px;
+    height: 115px;
+    position: relative;
+    left: 76px;
+    top: 176px;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+
+#phone {
+    width: 80px;
+    position: relative;
+    display: inline-block;
+    left: 17px;
+    top: 16px;
+    background-size: 80px;
+}
+
+#safari {
+    width: 80px;
+    position: relative;
+    display: inline-block;
+    left: 105px;
+    top: -68px;
+    background-size: 77px;
+}
+
+#message {
+    width: 80px;
+    position: relative;
+    display: inline-block;
+    left: 192px;
+    top: -146px;
+    background-size: 77px;
+}
+
+#music {
+    width: 95px;
+    position: relative;
+    display: inline-block;
+    left: 269px;
+    top: -237px;
+    background-size: 90px;
+}
+
+#file {
+    width: 83px;
+    position: relative;
+    display: inline-block;
+    left: 89px;
+    top: -178px;
+    background-size: 85px;
+}
+
+#memo {
+    width: 94px;
+    position: relative;
+    display: inline-block;
+    left: 81px;
+    top: 116px;
+    background-size: 77px;
+}
+
+#weather {
+    width: 88px;
+    position: relative;
+    display: inline-block;
+    left: 177px;
+    top: 22px;
+    background-size: 77px;
+}
+
+#gallery {
+    width: 94px;
+    position: relative;
+    display: inline-block;
+    left: 175px;
+    top: 102px;
+    background-size: 90px;
+}
+
+#map {
+    width: 81px;
+    position: relative;
+    display: inline-block;
+    left: 273px;
+    top: -262px;
+    background-size: 90px;
+}
+
+#join {
+    width: 83px;
+    position: relative;
+    display: inline-block;
+    left: 361px;
+    top: -349px;
+    background-size: 90px;
+}
+
+li :hover{
+    transform: rotate(-30deg);
+}
+
+</style>
+<title>menu</title>
+</head>
+
+	<body>
+		<section id="container">
+            <section id="content">
+                <div id="startclockT"></div>
+                <li><a href="03_Netflix.html">
+                    <img src="images/사진.png" id=gallery>
+                    </a>
+                </li>
+                <li><img src="images/memo.png" id="memo"></li>
+                <li>
+                    <a href="http://www.weather.go.kr/weather/forecast/mid-term_01.jsp" target = "_black">
+                        <img src="images/날씨.png" id="weather">
+                    </a>
+                </li>
+                <li>
+                    <a href="02_aboutMe.html">
+                        <img src="images/file.png" id="file">
+                    </a>
+                </li>
+                <li>
+                    <a href="04_roadMap.html">
+                        <img src="images/map.png" id="map">
+                    </a>
+                </li>
+                <li>
+                    <a href="05_join.html">
+                        <img src="images/join.png" id="join">
+                    </a>
+                </li>
+                <footer id="footer">
+                    <li><img src="images/전화.png" id=phone></li>
+                    <li>
+                        <a href="https://www.google.com/" target = "_black">
+                            <img src="images/Safari.png" id="safari">
+                        </a>
+                    </li>
+                    <li><img src="images/메세지.png" id="message"></li>
+                    <li><img src="images/music.jpg" id="music"></li>
+                </footer>
+            </section>
+
+        </section>
+        
+        <script>
+
+            function startClockT(){
+                clockT();
+                setInterval(clockT, 1000);
+            }
+
+            function clockT(){
+            let now = new Date();
+            let hh = now.getHours();
+            let mi = get2digit(now.getMinutes());
+
+            let s2 = hh + ":" + mi;
+
+            startclockT.innerHTML = "<h1>"+s2+"</h2>";
+        }
+
+        function get2digit(num){
+            if(num<10)
+                return "0"+num;
+            else
+                return num;
+        }
+
+        startClockT();
+        </script>
+	</body>
+</html>

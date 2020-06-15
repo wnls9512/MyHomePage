@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <style>
+    .panel {
+      position: relative;
+      width: 183px;
+      height: 200px;
+      margin: 40px 1px;
+    }
+    .card {
+        background-color: rgba(110, 110, 110, 0.774);
+        position: absolute;
+        /* top: 0px;
+        left: 0px; */
+        width: 183px;
+        height: 254px;
+        transition: all .5s;
+        /* backface-visibility: hidden; */
+    }
+    #back {
+        color: rgba(0, 0, 0, 0.541);
+        z-index: 1px;
+    }
+    .front {
+      z-index: 2;
+    }
+    .back {
+      z-index: 1;
+      transform: rotateY(-180deg);
+    }
+    .panel:hover .front {
+      z-index: 1;
+      transform: rotateY(180deg);
+    }
+    .panel:hover .back {
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+
+    div{
+        position: relative;
+        display: inline-block;
+    }
+
+    #container{ 
+    background-color:rgb(0, 0, 0); 
+    width:941px;
+    height: 1500px;
+    margin:0 auto; 
+    padding:10px; 
+    overflow: hidden;
+    }
+
+    #header{ 
+    margin-top: 30px;
+    background-color:#000000; 
+    height:100px;
+    /* border: 1px solid white; */
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    font-style: italic;
+    }
+    
+    li {
+        list-style: none;
+        color: white;
+        position: relative;
+        display: block;
+        top: 22px;
+        font-size: 25px;
+    }
+
+    .title{text-align: left;}
+
+    #footer{
+    padding: 20px;
+    text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+    }
+    .buttonL {
+        top: 255px;
+        position: absolute;
+        width: 40px;
+        height: 252px;
+        background-color: rgba(0, 0, 0, 0);
+        /* background-color: rgb(0, 0, 0); */
+        color: rgb(0, 0, 0);
+        border: 0;
+        z-index: 3;
+    }
+    .buttonR {
+        top: 255px;
+        left: 1034px;
+        position: absolute;
+        width: 40px;
+        height: 252px;
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(0, 0, 0);
+        border: 0;
+        z-index: 3;
+    }
+    .buttonL:hover{
+        background-color: rgb(0, 0, 0);
+        cursor:pointer;
+        color: white;
+        border: 1px solid rgb(104, 104, 104);
+
+    }
+    .buttonR:hover{
+        background-color: rgb(0, 0, 0);
+        cursor:pointer;
+        color: white;
+        border: 1px solid rgb(104, 104, 104);
+    }
+
+    #div1{
+        width: 1500px;
+        border: 1px solid black;
+    }
+
+    #backpage{
+        position: relative;
+        left: 800px;
+        color: white;
+        width: 0px;
+    }
+
+    </style>
+    </head>
+
+<body>
+    <section id="container">
+        <a href="01_mainMenu.html" style="font-size: 20px;" id="backpage"> < 뒤로가기</a>
+        <header id="header">NETFLIX</header>
+        <section id="content">
+            <input type="button" value="<" id="btn1L" class='buttonL'>
+            <input type="button" value=">" id="btn1R" class='buttonR'>
+            <div id="div1">
+                <li class="title">내가 찜한 콘텐츠</li>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster1.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 5.0</li>
+                            <li>★★★★★</li>
+                            <li style="font-size: 18px;">"사기치지 않았어요. 2주동안 공부해서 합격했죠."</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster2.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 5.0</li>
+                            <li>★★★★★</li>
+                            <li style="font-size: 18px;">"이 배의 탑승권을 따낸건 내 인생 최고의 행운이었어. 당신을 만났으니까"</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster3.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                            <li style="font-size: 18px;">"내 이름은 엘리자베스 쇼, 프로메테우스의 마지막 선원이다, 만약 이 무전을 듣는다면 경고한다 절대 이곳에 오지 말아라"</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster4.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 2.0</li>
+                            <li>★★☆☆☆</li>
+                            <li style="font-size: 18px;">"키키, 너무 겉모양에만 신경쓰지마라 중요한 건 마음가짐이야"</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster5.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 3.0</li>
+                            <li>★★★☆☆</li>
+                            <li style="font-size: 18px;">"역경을 이겨내고 핀 꽃이 제일 아름다운 꽃이니라"</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster21.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster28.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <li class="title">인기콘텐츠</li>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster6.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 5.0</li>
+                            <li>★★★★★</li>
+                            <li style="font-size: 18px;">"내 질투에선 썩은 냄새가 나"</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster7.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                            <li style="font-size: 18px;">"범인들의 인권은 중요하고 피해자나 유가족의 인권은 중요하지 않습니까?"</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster8.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                            <li style="font-size: 18px;">"Lisf is messy"</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster9.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 3.0</li>
+                            <li>★★★☆☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster10.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <li class="title">재탕 삼탕할 콘텐츠</li>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster11.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 3.0</li>
+                            <li>★★★☆☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster12.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster13.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 5.0</li>
+                            <li>★★★★★</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster14.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 2.0</li>
+                            <li>★★☆☆☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster15.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 3.0</li>
+                            <li>★★★☆☆</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <li class="title">몰아보기 추천 콘텐츠</li>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster16.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster17.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster18.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 3.0</li>
+                            <li>★★★☆☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster19.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 4.0</li>
+                            <li>★★★★☆</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="front card">
+                        <img src="images/poster20.PNG" alt="">
+                    </div>
+                    <div class="back card">
+                        <div>
+                            <li>평점 5.0</li>
+                            <li>★★★★★</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer id="footer">
+            <a href="#top">^</a>
+            <br>
+            <a href="#top">TOP</a>
+        </footer>
+    </section>
+    <script>
+
+        $(function(){
+            let count = 0;
+            $("#btn1R").click(function(){
+                count++;
+                console.log(count);
+                
+                if(count==1){
+                    let style = {
+                        left: "-183px"
+                    };
+                    $("#div1").animate(style, 500);
+                }else if(count ==2){
+                    let style = {
+                        left: "-366px"
+                    };
+                    $("#div1").animate(style, 500);
+                }else{
+                    alert("마지막 페이지입니다");
+                    count = 0;  
+                } 
+            });
+        });
+
+        $(function(){
+                $("#btn1L").click(function(){
+                        let style = {
+                            left: "0%"
+                        };
+                        $("#div1").animate(style, 500);
+                });
+            });
+
+    </script>
+</body>
+</html>

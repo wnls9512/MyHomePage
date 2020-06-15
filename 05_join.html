@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join</title>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+    * {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    #container { 
+        background-color:rgb(255, 255, 255); 
+        width:500px; 
+        height: 620px;
+        margin:0 auto; 
+        padding:10px; 
+        border: 3px solid #272840;
+    }
+    #header { 
+        background-color:#ffffff; 
+        height:50px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #464659;
+        /* background-color: #8EB6BF; */
+    }
+    #content { 
+        background-color:rgb(255, 255, 255); 
+        /* border: 1px solid slateblue; */
+        float:left; 
+        width:400px; 
+        height:500px; 
+        position: relative;
+    }
+    form {
+        background-color: rgb(255, 255, 255);
+    }
+
+    div {
+        margin: 15px;
+    }
+    .myButton {
+	    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	    background-color:#ffffff;
+	    border-radius:6px;
+	    border:1px solid #dcdcdc;
+	    display:inline-block;
+	    cursor:pointer;
+	    color:#666666;
+	    font-family:Arial;
+	    font-size:15px;
+	    font-weight:bold;
+	    padding:8px 24px;
+	    text-decoration:none;
+        text-shadow:0px 1px 0px #ffffff;
+        margin-left: 10px;
+    }
+    .myButton:hover {
+	    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	    background-color:#f6f6f6;
+    }
+    .myButton:active {
+	    position:relative;
+	    top:1px;
+    }
+    #btn{
+        position: relative;
+        top: 20px;
+        left: -40px;
+    }
+
+    input {
+        position: absolute;
+        right: 20px;
+    }
+    
+    #birth{
+        position: absolute;
+        right: 60px;
+    }
+    #malelabel{
+        position: absolute;
+        right: 199px;    
+    }
+    #male{
+        position: relative;
+        left: 170px;
+    }
+    #femalelabel{
+        position: absolute;
+        right: 98px;
+    }
+    #female{
+        position: relative;
+        left: 245px;
+    }
+    #phoneF{
+        position: relative;
+        left: 117px;
+    }
+    #phoneS{
+        position: relative;
+        left: 123px;
+    }
+    #phoneT{
+        position: relative;
+        left: 128px;
+    }
+    #job{
+        position: relative;
+        left: 139px;
+    }
+    li{
+        list-style: none;
+        display: inline;
+        font-weight: bold;
+    }
+    #li1{
+        position: relative;
+        left: 121px;
+    }
+    #li2{
+        position: relative;
+        left: 100px;
+    }
+    #btnJoin{
+        position: relative;
+        left: 90px;
+    }
+    #btnReset{
+        position: relative;
+        left: 90px;
+    }
+    #btnSelect{
+        position: relative;
+        left: 90px;
+    }
+    
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">Sign Up</div>
+        <hr>
+        <div id="content" id="memberJoin">
+            <form action="" onsubmit="return memberJoinValidate();">
+                <div>
+                    <label for="userName">이름*</label>
+                    <input type="text" name="userName" id="userName" required
+                            placeholder="5자 미만 공백없이" maxlength="5" minlength="1">
+                </div>
+                <div>
+                    <label for="userId">아이디*</label>
+                    <input type="text" name="userId" id="userId" required
+                            placeholder="4자 이상">
+                </div>
+                <div>
+                    <label for="password">비밀번호*</label>
+                    <input type="password" name="password" id="password" required
+                            placeholder="영문자/숫자/(*!&@^) 포함 8~16자리">
+                </div>
+                <div>
+                    <label for="passwordCheck">비밀번호 확인*</label>
+                    <input type="password" name="passwordCheck" id="passwordCheck" required>
+                </div>
+                <div>
+                    <label for="email">이메일*</label>
+                    <input type="email" name="email" id="email"
+                            placeholder="mail@gmail.com" required>
+                </div>
+                <div>
+                    <label for="birth">생년월일</label>
+                    <input type="date" name="birth" id="birth"
+                            value="2020-06-13">
+                </div>
+                <div>
+                    <label for="gender">성별</label>
+                    <input type="radio" name="gender" id="male" value="M" checked>
+                    <label for="male" id="malelabel">남</label>
+                    <input type="radio" name="gender" id="female" value="F">
+                    <label for="female" id="femalelabel">여</label>
+                </div>
+                <div>
+                    <label for="phone">연락처*</label>
+                    <input type="text" name="phone" id="phone"
+                            placeholder=" '-' 포함 13자리" maxlength="13">
+                </div>
+                <div>
+                    <label for="job">직업</label>
+                    <select name="job" id="job">
+                        <option value="student">학생</option>
+                        <option value="worker">직장인</option>
+                        <option value="nonWorker">무직</option>
+                    </select>
+                </div>
+                <div id = "btn">
+                    <input type="submit" value="회원가입" class="myButton" id="btnJoin">
+                    <input type="reset" value="초기화" class="myButton" id="btnReset">
+                    <input type="button" value="회원조회" class="myButton" id="btnSelect" onclick="popup();">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        function memberJoinValidate(){
+
+            //이름검사
+            let nameVal = userName.value.trim();
+            let regExp = /[가-힣]/g;
+            if(!regExp.test(nameVal)){
+                alert("이름은 1~5자리의 한글이어야 합니다");
+                userName.value = '';
+                userName.focus();
+                return false;
+            }
+
+            //id검사
+            let userIdVal = userId.value.trim();
+            if(userIdVal.length < 4){
+                alert("아이디를 4글자 이상 입력하세요");
+                userId.value = '';
+                userId.focus();
+                return false;
+            }
+            //id중복 검사
+            let memberBook = JSON.parse(localStorage.getItem("memberBook"));
+            var userIdArr = [];
+            $(memberBook).each(function(i, entry){
+                userIdArr.push(entry.userId);
+            })
+            // console.log(userIdArr);
+            for(let i=0; i<userIdArr.length; i++){
+                if(userIdArr[i] == userIdVal){
+                    alert("중복된 아이디 입니다.");
+                    return false;
+                }
+            }
+
+            //비밀번호 검사
+            let pwdVal = password.value.trim();
+            let pwdCheckVal = passwordCheck.value.trim();
+            let regExp1 = /^.{8,16}$/;
+            let regExp2 = /[a-zA-z]/;
+            let regExp2_1 = /\d/;
+            let regExp3 = /[\*!&\@\^]/;
+
+            if(pwdVal.length < 4 || pwdVal !== pwdCheckVal){
+                alert("비밀번호를 정확하게 입력하세요.");
+                passwordCheck.value = '';
+                password.value = '';
+                password.focus();
+                return false;
+            }else if(!regExp1.test(pwdVal)) {
+                alert("비밀번호는 8~16자리여야 합니다.");
+                passwordCheck.value = '';
+                password.value = '';
+                password.focus();
+                return false;
+            }else if(!(regExp2.test(pwdVal) && regExp2_1.test(pwdVal))){
+                alert("영문자/숫자가 포함되어야 합니다");
+                passwordCheck.value = '';
+                password.value = '';
+                password.focus();
+                return false;
+            } else if(!regExp3.test(pwdVal)){
+                alert("특수문자가 포함되어야 합니다");
+                passwordCheck.value = '';
+                password.value = '';
+                password.focus();
+                return false;
+            }
+
+            //전화번호 검사
+            let phoneVal = phone.value.trim();
+            let regExp4 = /^[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$/;
+            if(!regExp4.test(phoneVal)){
+                alert("전화번호를 정확하게 입력하세요.");
+                phone.value = '';
+                phone.focus();
+                return false;
+            }
+
+            if(this){
+                saveEntry();
+                alert("회원가입 성공!");
+            }
+
+        }
+
+        passwordCheck.onblur = function(){
+            if(password.value !== passwordCheck.value){
+                alert("비밀번호가 일치하지 않습니다.");
+                password.focus();
+            }
+        }
+
+        function popup(){
+            childWindow = window.open("08_login.html", "myPopup", "width=380, height=250, top=300, left=200")
+        }
+
+        function saveEntry(){
+            let entry = {
+                userName : $("#userName").val(),
+                userId: $("#userId").val(),
+                password: $("#password").val(),
+                email: $("#email").val(),
+                birth: $("#birth").val(),
+                gender: $('input[name="gender"]:checked').val(),
+                phone: $("[name=phone]").val(),
+                job: $("#job").val(),
+                date: Date.now()
+            };
+            console.log(entry);
+
+            let memberBook = JSON.parse(localStorage.getItem("memberBook"));
+
+            if(memberBook == null)
+                memberBook = [];
+
+            memberBook.push(entry);
+            console.log(memberBook);
+
+            localStorage.setItem("memberBook", JSON.stringify(memberBook));
+
+            $('#userName', '#userId', '#password', '#email', 
+                '#birth', '[name=gender]', '[name=phone]', '#job').val('');
+
+        };
+</script>
+
+</body>
+</html>
+

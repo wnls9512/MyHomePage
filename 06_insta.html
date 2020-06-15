@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        
+#myid { 
+    /* border: 1px solid black; */
+    color: rgb(0, 0, 0);
+    font-family: Trebuchet MS;
+    font-weight: bold;
+    position: relative;
+    /* display: inline; */
+    font-size: 23px;
+    left: 132px;
+    top: 34px;
+    margin: 0;
+}
+
+#hamburgerMenu {
+    width: 39px;
+    position: absolute;
+    right: 5px;
+    top: 35px;
+}
+
+#myimage { 
+    /* border: 1px solid black;  */
+    width: 127px;
+    color: rgb(0, 0, 0);
+    position: relative;
+    font-size: 20px;
+    left: -7px;
+    top: -1px;
+    margin: 0;
+}
+
+li{
+    list-style: none;
+}
+
+div>li {
+    font-family: Trebuchet MS;
+}
+.num {
+    position: relative;
+    display: inline-block;
+    left: 12px;
+    top: -77px;
+    font-size: 23px;
+}
+
+.titlename {
+    position: relative;
+    display: inline-block;
+    left: -26px;
+    top: -51px;
+    font-size: 12px;
+}
+
+#msg {
+    position: absolute;
+    display: inline-block;
+    /* font-weight: bold; */
+    left: 30px;
+    top: 139px;
+    font-size: 18px;
+}
+.myButton {
+    box-shadow: inset 1px -50px 0px 50px #ffffff;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    /* display: inline-block; */
+    cursor: pointer;
+    color: #000000;
+    font-family: Trebuchet MS;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 9px 13px;
+    text-decoration: none;
+    text-shadow: 0px 0px 32px #ffffff;
+}
+
+#follow{
+    position: absolute;
+    left: 17px;
+    top: 230px;
+    width: 80px;
+    text-align: center;
+}
+#direct{
+    position: absolute;
+    left: 136px;
+    top: 230px;
+    width: 80px;
+    text-align: center;
+    /* display: none; */
+}
+#phoneNum{
+    position: absolute;
+    left: 253px;
+    top: 230px;
+    width: 80px;
+    text-align: center;
+    /* display: none; */
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#gridicon {
+    position: relative;
+    width: 33px;
+    left: 85px;
+    top: 10px;
+    margin: 5px;
+}
+#tagicon {
+    position: relative;
+    width: 41px;
+    left: 174px;
+    top: 11px;
+    margin: 5px;
+}
+#iconline {
+    position:relative;
+    left: 2px;
+    top: 120px;
+    margin: 5px;
+}
+
+#myimages{
+    /* border: 1px solid black; */
+    position:relative;
+    left: 8px;
+    top: 120px;
+}
+.img{
+    width: 108px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+    <section id="container">
+        <header id="header">
+                    <div>
+                        <img src="images/KakaoTalk_20200610_183031812.png" alt="" id="myimage">
+                        <li class="num">95</li>
+                        <li class="titlename">게시물</li>
+                        <li class="num">12</li>
+                        <li class="titlename">팔로워</li>
+                        <li class="num">02</li>
+                        <li class="titlename">팔로잉</li>
+                        <li id=msg>박주원 1995.12.02 　　　　　　　　   　  정보통신공학과 　　wwoon9512@google.com</li>
+                    </div>
+                    <div>
+                        <a href="#" class="myButton" id="follow">팔로잉 ∨</a>
+                        <a href="#" class="myButton" id="direct">메세지</a>
+                        <a href="#" class="myButton" id="phoneNum">연락처</a>
+                    </div>
+                    <div id="iconline">
+                        <a href="#"><img src="images/pngflow.com.png" alt="grid" id="gridicon"></a>
+                        <a href="#"><img src="images/icon_tag.png" alt="tag" id="tagicon"></a>
+                        <hr>
+                    </div>
+                    <div id="myimages">
+                        <img src="images/KakaoTalk_20200610_211127691_01.jpg" alt="" id="image1" class="img">
+                        <img src="images/KakaoTalk_20200610_211127691_02.jpg" alt="" id="image2" class="img">
+                        <img src="images/KakaoTalk_20200610_211127691.jpg" alt="" id="image3" class="img">
+                        <img src="images/KakaoTalk_20200613_174343607.jpg" alt="" id="image4" class="img">
+                        <img src="images/KakaoTalk_20200613_174343607_01.jpg" alt="" id="image5" class="img">
+                        <img src="images/KakaoTalk_20200613_174343607_02.jpg" alt="" id="image6" class="img">
+                        <img src="images/KakaoTalk_20200613_174343607_03.jpg" alt="" id="image7" class="img">
+                        <img src="images/KakaoTalk_20200613_174343607_04.jpg" alt="" id="image8" class="img">
+                        <img src="images/KakaoTalk_20200613_174706569.jpg" alt="" id="image9" class="img">
+                        <img src="images/KakaoTalk_20200613_175418279.jpg" alt="" id="image10" class="img">
+                        <img src="images/KakaoTalk_20200613_175417596.jpg" alt="" id="image11" class="img">
+                        <img src="images/KakaoTalk_20200613_175417246.jpg" alt="" id="image12" class="img">
+                    </div>
+                </header>
+        </section>
+
+        <script>
+            $( ".img" ).dblclick(function() {
+                console.log(this);
+                let style = {
+                    width: "350px"
+                }
+                $(this).animate(style, 500);
+            });
+
+            $( ".img" ).click(function() {
+                console.log(this);
+                let style = {
+                    width: "108px"
+                }
+                $(this).animate(style, 500);
+            });
+
+        </script>
+</body>
+</html>

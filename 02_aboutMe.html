@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="mainMenu" content="text/html; charset=UTF-8" />
+<script src="js/prefixfree.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<style>
+#container { 
+    background-color:rgb(255, 255, 255); 
+    width:960px;
+    height: 1000px; 
+    margin:0 auto; 
+    padding:10px; 
+    /* border: 1px solid black; */
+}
+
+#content {
+    background: url('images/iphone (2).png') no-repeat;
+    background-size: 504px;
+    padding: 10px;
+    width: 56%;
+    height: 88%;
+    position: relative;
+    left: 213px;
+    top: 46px;
+    /* border: 1px solid black;  */
+}
+
+#startclockT {
+    color: rgb(0, 0, 0);
+    left: 110px;
+    top: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    left: 82px;
+    top: 29px;
+    position: relative;
+}
+#footer { 
+    /* border: 1px solid black; */
+    border-radius:38px;
+    background-color: rgb(255, 255, 255);
+    width: 370px;
+    height: 73px;
+    position: relative;
+    left: 56px;
+    top: 662px;
+    margin: 0;
+    display: none;
+}
+
+iframe{
+    position: absolute;
+    left: 65px;
+    top: 140px;
+    /* border: 1px solid black; */
+}
+
+#icon1 {
+    width: 39px;
+    font-size: 26px;
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    z-index: 100;
+}
+
+li{
+    list-style: none;
+}
+
+#header {
+    /* border: 1px solid black; */
+    background-color: white;
+    width: 372px;
+    height: 46px;
+    position: relative;
+    right: -55px;
+    top: 24px;
+}
+
+#myid { 
+    /* border: 1px solid black; */
+    color: rgb(0, 0, 0);
+    font-family: Trebuchet MS;
+    font-weight: bold;
+    position: relative;
+    /* display: inline; */
+    font-size: 23px;
+    left: 138px;
+    top: 9px;
+    margin: 0;
+}
+
+#hamburgerMenu {
+    width: 39px;
+    position: absolute;
+    right: 16px;
+    top: 4px;
+}
+
+</style>
+<title>aboutme</title>
+</head>
+
+	<body>
+		<section id="container">
+            <!-- <section id="background"> -->
+            <section id="content">
+                <div id="startclockT"></div>
+                <div id = "header">
+                    <li id="icon1"><a href="01_mainMenu.html" style="text-decoration: none;">＜</a></li>
+                    <li id="myid">JU_WON</li>
+                    <img src="images/iconfinder_menu-alt_134216.png" alt="" id="hamburgerMenu">
+                </div>
+                <iframe src="06_insta.html" frameborder="0" width="370px" height="680px"></iframe>
+                <footer id="footer">
+                </footer>
+            </section>
+        </section>
+        </section>
+        
+        <script>
+
+            function startClockT(){
+                clockT();
+                setInterval(clockT, 1000);
+            }
+
+            function clockT(){
+            let now = new Date();
+            let hh = now.getHours();
+            let mi = get2digit(now.getMinutes());
+
+            let s2 = hh + ":" + mi;
+
+            startclockT.innerHTML = "<h1>"+s2+"</h2>";
+        }
+
+        function get2digit(num){
+            if(num<10)
+                return "0"+num;
+            else
+                return num;
+        }
+
+        startClockT();
+        </script>
+	</body>
+</html>
